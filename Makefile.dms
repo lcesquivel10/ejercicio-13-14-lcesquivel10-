@@ -1,0 +1,16 @@
+plot.png: Bifurcation.dat Poincare.dat plot.py
+	python plot.py
+
+Poincare.dat : a.out
+	./a.out
+
+Bifurcation.dat : b.out
+	./b.out > Bifurcation.dat
+
+a.out: Poincare.cpp
+	g++ -o a.out Poincare.cpp
+
+b.out: Bifurcation.cpp
+	g++ -o b.out Bifurcation.cpp
+
+
